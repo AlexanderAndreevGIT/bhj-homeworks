@@ -7,13 +7,13 @@ const sliderArrowNext = document.getElementsByClassName('slider__arrow_next')
 let activeSlide = 0;
 
 function itemDotsDeactivate(index) {
-	sliderItems[index].className.remove('slider__item_active');
-	sliderDots[index].className.remove('slider__dot_active');
+	sliderItems[index].classList.remove('slider__item_active');
+	sliderDots[index].classList.remove('slider__dot_active');
 }
 
 function itemDotsActivate(index) {
-	sliderItems[index].className.add('slider__item_active');
-	sliderDots[index].className.add('slider__dot_active');
+	sliderItems[index].classList.add('slider__item_active');
+	sliderDots[index].classList.add('slider__dot_active');
 }
 
 sliderArrowPrev[0].onclick = function () {
