@@ -1,17 +1,31 @@
 "use strict"
 
 const tooltips = Array.from(document.getElementsByClassName('has-tooltip'));
+let activeTip;
+
+function addTooltip (item) {
+	let tip = `<div class="tooltip">
+      ${item.title}
+    </div>` 
+	return tip;
+}
+
+tooltips.forEach(item => item.insertAdjacentHTML('beforeEnd', addTooltip(item)))
 
 function showHideTooltip(e) {
 	e.preventDefault()
-	let tip = `<div class="tooltip tooltip_active style="left: 0; top: 0"">
-      ${this.title}
-    </div>`
-	let removeActiveTip = Array.from(document.getElementsByClassName('tooltip_active'));
-	if (removeActiveTip[0] !== undefined) {
-		removeActiveTip[0].remove()
+
+	let tipToChange = this.querySelectorAll('.tooltip')[0]
+	if (activeTip != undefined) {
+		if (tipToChange.textContent != activeTip.textContent) {
+			activeTip.classList.remove('tooltip_active');
+		}
 	}
-	this.insertAdjacentHTML('afterBegin', tip);
+	tipToChange.classList.toggle('tooltip_active');
+	tipToChange.style = `margin-left: ${this.getBoundingClientRect().left}px;`
+	activeTip = tipToChange;
+	return activeTip
 }
 
 tooltips.forEach(item => item.addEventListener('click', showHideTooltip));
+
