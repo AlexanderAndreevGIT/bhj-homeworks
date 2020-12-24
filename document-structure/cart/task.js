@@ -8,7 +8,7 @@ function quantityControl(e) {
 	e.preventDefault();
 	let productQuantityAddToBasket = this.closest('.product__quantity-controls').querySelectorAll('.product__quantity-value');
 	let productQuantityAddToBasketNumber = parseInt(productQuantityAddToBasket[0].textContent);
-	if (this.classList.contains('product__quantity-control_dec') && productQuantityAddToBasketNumber > 0) {
+	if (this.classList.contains('product__quantity-control_dec') && productQuantityAddToBasketNumber > 1) {
 		productQuantityAddToBasket[0].textContent = productQuantityAddToBasketNumber - 1;
 	} else if (this.classList.contains('product__quantity-control_inc')) {
 	productQuantityAddToBasket[0].textContent = productQuantityAddToBasketNumber + 1;
