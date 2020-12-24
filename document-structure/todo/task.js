@@ -23,6 +23,7 @@ function addTask(e) {
 		tasksList.insertAdjacentHTML('beforeEnd', task);
 		let removeButtons = Array.from(document.getElementsByClassName('task__remove'));
 		removeButtons[removeButtons.length - 1].addEventListener('click', delateTask);
+		taskInput.value = '';
 	}
 }
 
