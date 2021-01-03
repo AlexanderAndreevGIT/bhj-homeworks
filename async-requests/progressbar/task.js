@@ -1,7 +1,7 @@
 "use strict"
 
 const progressBar = document.getElementById('progress');
-let requestUrl = 'https://netology-slow-rest.herokuapp.com/poll.php';
+let requestUrl = 'https://netology-slow-rest.herokuapp.com/upload.php';
 
 const uploadForm = document.getElementById('form')
  
